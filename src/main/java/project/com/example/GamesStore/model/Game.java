@@ -1,4 +1,4 @@
-package model;
+package project.com.example.GamesStore.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,26 +9,26 @@ public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private Long id;
 
     @NotNull
-    String name;
+    private String name;
 
-    LocalDate releaseDate;
-
-    @NotNull
-    @ManyToOne
-    Category category;
+    private LocalDate releaseDate;
 
     @NotNull
     @ManyToOne
-    Platform platform;
+    private Category category;
 
-    public int getId() {
+    @NotNull
+    @ManyToOne
+    private Platform platform;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
