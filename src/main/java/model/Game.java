@@ -1,23 +1,28 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
 public class Game {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @NotNull
     String name;
 
     LocalDate releaseDate;
 
+    @NotNull
+    @ManyToOne
     Category category;
+
+    @NotNull
+    @ManyToOne
+    Platform platform;
 
     public int getId() {
         return id;
@@ -49,5 +54,13 @@ public class Game {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
     }
 }
