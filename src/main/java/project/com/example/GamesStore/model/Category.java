@@ -1,4 +1,4 @@
-package model;
+package project.com.example.GamesStore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +11,13 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
 
     @NotNull
-    String name;
+    private String name;
 
     @NotNull
-    boolean ageRestricted;
+    private boolean ageRestricted;
 
     public int getId() {
         return id;
